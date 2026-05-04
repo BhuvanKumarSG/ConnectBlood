@@ -1,1 +1,33 @@
+name: ConnectBlood Backend CI
 
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run AI Test Agent
+        # This triggers your agent script which handles the unit tests
+        run: node test-agent.js
+        env:
+          NODE_ENV: test
+          # Add dummy env vars if your backend code requires them to boot
+          JWT_SECRET: test_secret
+          MONGO_URI: mongodb://localhost:27017/test
