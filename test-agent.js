@@ -1,6 +1,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
-
+// Change this line inside test-agent.js
+const success = runCommand('node --experimental-vm-modules node_modules/jest/bin/jest.js root_backend.test.js --detectOpenHandles');
 /**
  * AI Test Agent: 
  * 1. Checks for dependencies
