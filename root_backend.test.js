@@ -1,3 +1,15 @@
+
+import request from 'supertest';
+// Use curly braces because you used 'export { app }'
+import { app } from './backend/server.js'; 
+
+describe('ConnectBlood Backend Unit Tests', () => {
+  test('Status 200: API health check', async () => {
+    const res = await request(app).get('/'); 
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe("Blood donation running successfully");
+  });
+});
 const request = require('supertest');
 // Point this to your main server entry file
 const app = require('./backend/index'); 
