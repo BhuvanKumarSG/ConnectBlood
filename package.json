@@ -1,0 +1,12 @@
+{
+  "name": "connectblood-root",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "agent": "node test-agent.js"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
+  }
+}
