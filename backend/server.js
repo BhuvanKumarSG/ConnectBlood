@@ -90,7 +90,7 @@ app.use("/api/user",userProfileRoutes)
 app.use("/api", uploadRoutes);
 
 
-
+export { app };
 
 server.listen(PORT, () => {
   console.log("Server started successfully")
